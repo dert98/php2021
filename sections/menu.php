@@ -14,7 +14,7 @@
         </p>
     </div>
     <div class="col-md-12 row text-center m-auto">
-        .<div class="col-md-3 card m-4" v-for="p in searchUser">
+        .<div class="col-md-3 card m-4" v-for="p in searchProd">
           <!-- <img class="card-img-top" src="holder.js/100px180/" alt=""> -->
           <div class="card-body">
             <h4 class="card-title">{{p['nombre']}}</h4>

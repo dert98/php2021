@@ -56,7 +56,7 @@ var app = new Vue({
   },
   computed: {
 
-      searchUser: function() {
+      searchProd: function() {
         return this.searchCategory.filter((p) => p.nombre.includes(this.name));
       },
 
