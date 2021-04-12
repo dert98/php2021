@@ -6,16 +6,15 @@
         </p>
         <p class="">
             Categoria:
-            <select name="categoria" id="">
+            <select name="categoria" id="" v-model="category">
                 <option value="0">Totas</option>
                 <option v-for="c in categorias" v-bind:value="c.value">{{c.nombre}}
             </select>
-            Nombre: <input type="text" maxlength="20">
-            <button type="reset" class="btn btn-success">Buscar</button>
+            Nombre: <input type="text" maxlength="20" v-model="name">
         </p>
     </div>
     <div class="col-md-12 row text-center m-auto">
-        .<div class="col-md-3 card m-4" v-for="p in productos">
+        .<div class="col-md-3 card m-4" v-for="p in searchUser">
           <!-- <img class="card-img-top" src="holder.js/100px180/" alt=""> -->
           <div class="card-body">
             <h4 class="card-title">{{p['nombre']}}</h4>

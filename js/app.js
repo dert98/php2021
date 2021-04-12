@@ -6,6 +6,8 @@ var app = new Vue({
     usuarios: [],
     buscado:[],
     details: [],
+    name: '',
+    category: 1,
   },
   
   mounted: function () {
@@ -53,6 +55,15 @@ var app = new Vue({
     },
   },
   computed: {
+
+      searchUser: function() {
+        return this.searchCategory.filter((p) => p.nombre.includes(this.name));
+      },
+
+      searchCategory: function() {
+        return this.productos.filter((p) => (p.idCategoriaProducto == this.category))
+      },
+
       getTotalusuarios: function () {
         return this.Usuarios.length;
       },
