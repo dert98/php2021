@@ -21,7 +21,7 @@
             <h4 class="card-title">{{p['nombre']}}</h4>
             <p class="card-text">{{p['descripcion']}}</p>
             <p class="card-text">{{p['precio']}}</p>
-            <p><a :href="'view/vermas.php?id=' + p.idProducto" class="btn btn-success m-2">Ver</a><a href="" class="btn btn-success">Comprar</a></p>
+            <p><a :href="'view/vproducto.php?id=' + p.idProducto" class="btn btn-success m-2"  @click="busquedaid(p.id)">Ver</a><a href="" class="btn btn-success">Comprar</a></p>
             <p class="card-text">Fecha Publicacion: {{p['publicacion']}}</p>
           </div>
         </div>

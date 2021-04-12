@@ -4,7 +4,7 @@ var app = new Vue({
     productos: [],
     categorias: [],
     usuarios: [],
-    buscado:[]
+    buscado: ""
   },
   
   mounted: function () {
@@ -44,6 +44,9 @@ var app = new Vue({
         }
       })
     },
+    cargarBuscado(item){
+       this.buscado = "hola";
+    },
   },
   computed: {
       getTotalusuarios: function () {
@@ -53,14 +56,9 @@ var app = new Vue({
       UsuariosVacio: function () {			
         return this.getTotalUsuarios == 0;
       },
-  
-      busqueda: function () {
-          return this.filtrados.filter((item) => item.busqueda.includes(this.busqueda));
-      },
-      busquedaid: function () {
-        return this.filtrados.filter((item) => item.busqueda.includes(this.busqueda));
+      busquedaid: function (item) {
+        this.buscado.filter((item) => item.productos.includes(this.buscado));
       }
-  
     },
   })
     
