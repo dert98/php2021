@@ -18,7 +18,7 @@
     <main id="app" class="bg-dark">
         <?php 
             include("sections/navbar.php");
-            include ("sections/slider.php");
+            include("sections/slider.php");
             include("sections/menu.php");
             include("sections/ubicacion.php");
             include("sections/footer.php");

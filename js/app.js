@@ -4,7 +4,8 @@ var app = new Vue({
     productos: [],
     categorias: [],
     usuarios: [],
-    buscado:[]
+    buscado:[],
+    details: [],
   },
   
   mounted: function () {
@@ -14,6 +15,12 @@ var app = new Vue({
   },
   
   methods: {
+    openDetails(p) {
+      this.details = p;
+    },
+    closeDetails() {
+      this.details = [];
+    },
     getProductos: function () {
       axios.get("php/api.php?action=readp")
       .then(function (response) {
