@@ -1,20 +1,28 @@
 <section class="row col-md-12 m-5" id="app">
-<div class="text-center m-auto t5">
+  <div class="bg1">
+    <div>
+      Caducado:{{checkedName1}}
+      Sin vender:{{checkedName2}}
+    </div>
+  </div>
+    <div class="text-center m-auto t5">
         <p class="">
-            Caducado<input type="checkbox" name="" id=""> 
-            Sin vender<input type="checkbox" name="" id="">
+          <input type="checkbox" id="caducado" value="caducado" v-model="checkedName1">
+          <label for="Caducado">Caducado</label>
+          <input type="checkbox" id="vendido" value="vendido" v-model="checkedName2">
+          <label for="vendido">Sin vender</label>
         </p>
         <p class="">
             Categoria:
-            <select name="categoria" id="" v-model="category">
-                <option value="0">Totas</option>
-                <option v-for="c in categorias" v-bind:value="c.value">{{c.nombre}}
+            <select name="categoria" id="" v-model="categoria">
+                <option>Totas</option>
+                <option v-for="c in categorias" v-bind:value="c.idCategoriaProducto">{{c.nombre}}
             </select>
             Nombre: <input type="text" maxlength="20" v-model="name">
         </p>
     </div>
     <div class="col-md-12 row text-center m-auto">
-        .<div class="col-md-3 card m-4" v-for="p in productos">
+        .<div class="col-md-3 card m-4" v-for="p in searchProd">
           <!-- <img class="card-img-top" src="holder.js/100px180/" alt=""> -->
           <div class="card-body">
             <h4 class="card-title">{{p['nombre']}}</h4>
@@ -41,7 +49,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" @click=closeDetails()>Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary">Comprar</button>
       </div>
     </div>
   </div>
