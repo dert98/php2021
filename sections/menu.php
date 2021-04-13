@@ -3,7 +3,7 @@
     <div>
       <!-- Caducado:{{checkedName1}} -->
       <!-- Sin vender:{{checkedName2}} -->
-      {{ compareDates("2021-04-13") }}
+
     </div>
   </div>
     <div class="text-center m-auto t5">
