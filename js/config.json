@@ -2,7 +2,7 @@
     "name": "Cew",
     "autor": "Dert98",
     "server":"localhost",
-    "db_name":"dbml_dert_2021",
+    "db_name":"db_php",
     "user":"root",
     "pass":""
 }

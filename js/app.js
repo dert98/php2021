@@ -1,3 +1,4 @@
+  
 var app = new Vue({
   el: "#app",
   data: {
@@ -6,8 +7,12 @@ var app = new Vue({
     usuarios: [],
     buscado:[],
     details: [],
+    categoria:'',
+    checkedName1:false,
+    checkedName2:false,
     name: '',
-    category: 1,
+    category: '',
+    fecha : new Date(),
   },
   
   mounted: function () {
@@ -56,12 +61,20 @@ var app = new Vue({
   },
   computed: {
 
+      getMonth: function(){
+        return date.getMonth();
+      },
+
       searchProd: function() {
         return this.searchCategory.filter((p) => p.nombre.includes(this.name));
       },
 
       searchCategory: function() {
-        return this.productos.filter((p) => (p.idCategoriaProducto == this.category))
+          return this.searchVenta.filter((p) => (p.idCategoriaProducto == this.categoria))
+      },
+
+      searchVenta: function() {
+        return this.productos.filter((p) => (p.caducidad > '2021-04-13'))
       },
 
       getTotalusuarios: function () {
@@ -81,4 +94,3 @@ var app = new Vue({
   
     },
   })
-    
