@@ -31,6 +31,8 @@
             <!-- <p><a :href="'view/vermas.php?id=' + p.idProducto" class="btn btn-success m-2">Ver</a><a href="" class="btn btn-success">Comprar</a></p> -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDetails" @click="openDetails(p)"> Ver </button>
             <p class="card-text">Fecha Publicacion: {{p['publicacion']}}</p>
+            <p class="card-text">{{ compareDates(p['caducidad']) }}</p>
+
           </div>
         </div>
     </div>

@@ -55,6 +55,15 @@ var app = new Vue({
         }
       })
     },
+
+    compareDates: function(dd) {
+      const cd = new Date(); // current date
+      // const dd = "2021-04-13"; // database date
+      const ddp = dd.split("-"); // database date pre-processed
+      const ddf = new Date(ddp[0], ddp[1]-1, ddp[2]); // database date formatted
+      const state = (cd > ddf) ? "Caducado" : "En fecha";
+      return state;
+    },
   },
   computed: {
 
