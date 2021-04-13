@@ -7,7 +7,9 @@ var app = new Vue({
     buscado:[],
     details: [],
     name: '',
-    category: 1,
+    categoria: [],
+    // checkbox1:'',
+    // checkbox2:''
   },
   
   mounted: function () {
@@ -61,7 +63,7 @@ var app = new Vue({
       },
 
       searchCategory: function() {
-        return this.productos.filter((p) => (p.idCategoriaProducto == this.category))
+        return this.productos.filter((p) => (p.idCategoriaProducto == this.categoria))
       },
 
       getTotalusuarios: function () {
@@ -72,13 +74,5 @@ var app = new Vue({
         return this.getTotalUsuarios == 0;
       },
   
-      busqueda: function () {
-          return this.filtrados.filter((item) => item.busqueda.includes(this.busqueda));
-      },
-      busquedaid: function () {
-        return this.filtrados.filter((item) => item.busqueda.includes(this.busqueda));
-      }
-  
     },
   })
-    
