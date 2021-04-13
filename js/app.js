@@ -4,7 +4,10 @@ var app = new Vue({
     productos: [],
     categorias: [],
     usuarios: [],
-    buscado: ""
+    buscado:[],
+    details: [],
+    name: '',
+    category: 1,
   },
   
   mounted: function () {
@@ -14,6 +17,12 @@ var app = new Vue({
   },
   
   methods: {
+    openDetails(p) {
+      this.details = p;
+    },
+    closeDetails() {
+      this.details = [];
+    },
     getProductos: function () {
       axios.get("php/api.php?action=readp")
       .then(function (response) {
@@ -44,11 +53,17 @@ var app = new Vue({
         }
       })
     },
-    cargarBuscado(item){
-       this.buscado = "hola";
-    },
   },
   computed: {
+
+      searchProd: function() {
+        return this.searchCategory.filter((p) => p.nombre.includes(this.name));
+      },
+
+      searchCategory: function() {
+        return this.productos.filter((p) => (p.idCategoriaProducto == this.category))
+      },
+
       getTotalusuarios: function () {
         return this.Usuarios.length;
       },
@@ -56,9 +71,6 @@ var app = new Vue({
       UsuariosVacio: function () {			
         return this.getTotalUsuarios == 0;
       },
-      busquedaid: function (item) {
-        this.buscado.filter((item) => item.productos.includes(this.buscado));
-      }
+  
     },
   })
-    
