@@ -67,6 +67,12 @@ var app = new Vue({
   },
   computed: {
 
+      currentDate: function() {
+        const d = new Date();
+        const ds  = new Intl.DateTimeFormat('en-AU').format(d);
+        return ds;
+      },
+
       searchProd: function() {
         return this.searchCategory.filter((p) => p.nombre.includes(this.name));
       },

@@ -4,6 +4,8 @@
       <!-- Caducado:{{checkedName1}} -->
       <!-- Sin vender:{{checkedName2}} -->
 
+      {{ currentDate }}
+
     </div>
   </div>
     <div class="text-center m-auto t5">
