@@ -8,8 +8,8 @@ var app = new Vue({
     details: [],
     name: '',
     categoria: [],
-    checkbox1:'',
-    checkbox2:''
+    checkbox1:false,
+    checkbox2:false,
   },
   
   mounted: function () {
@@ -55,9 +55,9 @@ var app = new Vue({
         }
       })
     },
+    
   },
   computed: {
-
       searchProd: function() {
         return this.searchCategory.filter((p) => p.nombre.includes(this.name));
       },
@@ -65,14 +65,20 @@ var app = new Vue({
       searchCategory: function() {
         return this.productos.filter((p) => (p.idCategoriaProducto == this.categoria))
       },
-
-      getTotalusuarios: function () {
-        return this.Usuarios.length;
-      },
   
       UsuariosVacio: function () {			
         return this.getTotalUsuarios == 0;
       },
-  
+      getfecha: function() {
+        let fecha = new Date(Date.now());
+        let dia = fecha.getDate().toString();
+        let mes = fecha.getMonth()+1;
+        mes = mes.toString().padStart(2, "0")
+        let ano = fecha.getFullYear().toString();
+        let date = ano +'-'+mes+'-'+dia;
+        // const time = fecha.getHours() + ":" + fecha.getMinutes() + ":" + fecha.getSeconds();
+        // const dateTime = date;
+        return date;
+      },
     },
   })

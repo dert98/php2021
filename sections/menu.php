@@ -1,15 +1,17 @@
 <section class="row col-md-12 m-5" id="app">
   <div class="bg1">
     <div>
-      Caducado:{{checkedName1}}
-      Sin vender:{{checkedName2}}
+      Caducado:{{checkbox1}}
+      Sin vender:{{checkbox2}}
+      name : {{name}}
+      fecha : {{getfecha}}
     </div>
   </div>
     <div class="text-center m-auto t5">
         <p class="">
-          <input type="checkbox" id="caducado" value="caducado" v-model="checkedName1">
+          <input type="checkbox" id="caducado" value="caducado" v-model="checkbox1">
           <label for="Caducado">Caducado</label>
-          <input type="checkbox" id="vendido" value="vendido" v-model="checkedName2">
+          <input type="checkbox" id="vendido" value="vendido" v-model="checkbox2">
           <label for="vendido">Sin vender</label>
         </p>
         <p class="">
@@ -30,7 +32,9 @@
             <p class="card-text">{{p['precio']}}</p>
             <!-- <p><a :href="'view/vermas.php?id=' + p.idProducto" class="btn btn-success m-2">Ver</a><a href="" class="btn btn-success">Comprar</a></p> -->
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDetails" @click="openDetails(p)"> Ver </button>
-            <p class="card-text">Fecha Publicacion: {{p['publicacion']}}</p>
+            <p class="card-text">Caduca : {{p['caducidad']}}</p>
+            <p class="card-text">fecha : {{getfecha}}</p>
+            <p class="text-danger" v-if="p['caducidad'] < getfecha">caduco</p>
           </div>
         </div>
     </div>
