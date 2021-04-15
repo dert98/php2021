@@ -74,7 +74,7 @@ var app = new Vue({
 
       searchVendido: function() {
         if (this.vendido) {
-          return this.productos.filter((p) => (p.idUsuarioComprador == 0))
+          return this.searchProd.filter((p) => (p.idUsuarioComprador == this.getVendido))
         }
       },
   

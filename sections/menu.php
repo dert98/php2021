@@ -4,7 +4,10 @@
       Caducado:{{caducado}}
       Sin vender:{{vendido}}
       name : {{name}}
-      fecha : {{getfecha}}
+      fecha : {{getfecha}}br
+    </div>
+    <div>
+      {{searchProd()}}
     </div>
   </div>
     <div class="text-center m-auto t5">
