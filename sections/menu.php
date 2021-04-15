@@ -1,17 +1,17 @@
 <section class="row col-md-12 m-5" id="app">
   <div class="bg1">
     <div>
-      Caducado:{{checkbox1}}
-      Sin vender:{{checkbox2}}
+      Caducado:{{caducado}}
+      Sin vender:{{vendido}}
       name : {{name}}
       fecha : {{getfecha}}
     </div>
   </div>
     <div class="text-center m-auto t5">
         <p class="">
-          <input type="checkbox" id="caducado" value="caducado" v-model="checkbox1">
+          <input type="checkbox" id="caducado" value="caducado" v-model="caducado">
           <label for="Caducado">Caducado</label>
-          <input type="checkbox" id="vendido" value="vendido" v-model="checkbox2">
+          <input type="checkbox" id="vendido" value="vendido" v-model="vendido">
           <label for="vendido">Sin vender</label>
         </p>
         <p class="">
@@ -25,7 +25,7 @@
     </div>
     <div class="col-md-12 row text-center m-auto">
         .<div class="col-md-3 card m-4" v-for="p in searchProd">
-          <!-- <img class="card-img-top" src="holder.js/100px180/" alt=""> -->
+          <!-- <img class="card-img-top" src="p['contenidoimagen']" alt=""> -->
           <div class="card-body">
             <h4 class="card-title">{{p['nombre']}}</h4>
             <p class="card-text">{{p['descripcion']}}</p>

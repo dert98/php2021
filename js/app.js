@@ -8,8 +8,8 @@ var app = new Vue({
     details: [],
     name: '',
     categoria: [],
-    checkbox1:false,
-    checkbox2:false,
+    caducado:false,
+    vendido:false,
   },
   
   mounted: function () {
@@ -64,6 +64,18 @@ var app = new Vue({
 
       searchCategory: function() {
         return this.productos.filter((p) => (p.idCategoriaProducto == this.categoria))
+      },
+
+      searchCaducado: function() {
+        if (this.caducado) {
+          return this.searchProd .filter((p) => (p.caducidad >  this.getfecha()))
+        }
+      },
+
+      searchVendido: function() {
+        if (this.vendido) {
+          return this.productos.filter((p) => (p.idUsuarioComprador == 0))
+        }
       },
   
       UsuariosVacio: function () {			
