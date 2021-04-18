@@ -71,9 +71,7 @@ var app = new Vue({
   computed: {
 
       currentDate: function() {
-        const d = new Date();
-        const ds  = new Intl.DateTimeFormat('en-AU').format(d);
-        return ds;
+        return new Intl.DateTimeFormat('en-AU').format(new Date());
       },
 
       searchCategory: function() {
