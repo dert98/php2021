@@ -8,8 +8,9 @@ var app = new Vue({
     details: [],
     name: '',
     categoria: [],
-    // checkbox1:'',
-    // checkbox2:''
+    checkCaducado: '',
+    checkVendido: '',
+
   },
   
   mounted: function () {
@@ -64,6 +65,8 @@ var app = new Vue({
       const state = (cd > ddf) ? "Caducado" : "En fecha";
       return state;
     },
+
+
   },
   computed: {
 
@@ -73,14 +76,22 @@ var app = new Vue({
         return ds;
       },
 
-      searchProd: function() {
-        return this.searchCategory.filter((p) => p.nombre.includes(this.name));
-      },
-
       searchCategory: function() {
         return this.productos.filter((p) => (p.idCategoriaProducto == this.categoria))
       },
+      
+      searchName: function() {
+        return this.searchCategory.filter((p) => p.nombre.includes(this.name));
+      },
 
+      filterExpired: function() {
+        return (this.checkCaducado ? this.searchName.filter((p) => this.compareDates(p.caducidad) == 'Caducado') : this.searchName);
+      },
+
+      filterProds: function() {
+        return this.filterExpired;
+      },
+      
       getTotalusuarios: function () {
         return this.Usuarios.length;
       },

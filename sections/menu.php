@@ -4,15 +4,15 @@
       <!-- Caducado:{{checkedName1}} -->
       <!-- Sin vender:{{checkedName2}} -->
 
-      {{ currentDate }}
+      {{ checkCaducado }}
 
     </div>
   </div>
     <div class="text-center m-auto t5">
         <p class="">
-          <input type="checkbox" id="caducado" value="caducado">
+          <input type="checkbox" id="caducado" v-model="checkCaducado">
           <label for="Caducado">Caducado</label>
-          <input type="checkbox" id="vendido" value="vendido">
+          <input type="checkbox" id="vendido" v-model="checkVendido">
           <label for="vendido">Sin vender</label>
         </p>
         <p class="">
@@ -25,7 +25,7 @@
         </p>
     </div>
     <div class="col-md-12 row text-center m-auto">
-        .<div class="col-md-3 card m-4" v-for="p in searchProd">
+        .<div class="col-md-3 card m-4" v-for="p in filterProds">
           <!-- <img class="card-img-top" src="holder.js/100px180/" alt=""> -->
           <div class="card-body">
             <h4 class="card-title">{{p['nombre']}}</h4>
