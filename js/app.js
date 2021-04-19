@@ -71,22 +71,27 @@ var app = new Vue({
   computed: {
 
       currentDate: function() {
+        // Obtenemos la fecha actual (new Date()) y la formateamos como 30/12/2021 
         return new Intl.DateTimeFormat('en-AU').format(new Date());
       },
 
       searchCategory: function() {
+        // Retorno el filtrado por categoría del array de productos 
         return this.productos.filter((p) => (p.idCategoriaProducto == this.categoria))
       },
       
       searchName: function() {
+        // Retorno el filtrado por nombre del array resultado del filtado por categoría
         return this.searchCategory.filter((p) => p.nombre.includes(this.name));
       },
 
       filterExpired: function() {
+        // Si checkCaducado es true retorno el array filtrado con los productos caducados, sino, retorno el filtrado por nombre 
         return (this.checkCaducado ? this.searchName.filter((p) => this.compareDates(p.caducidad) == 'Caducado') : this.searchName);
       },
 
       filterProds: function() {
+        // Retorno el filtrado a mostrar en el index
         return this.filterExpired;
       },
       
